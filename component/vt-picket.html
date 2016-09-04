@@ -1,0 +1,45 @@
+<style>
+    vt-picket {
+        border: 1px solid #000;
+        display: inline-block;
+
+        width: 25px;
+        height: 100px;
+    }
+</style>
+
+<script>
+    'use strict';
+    class VTPicket extends HTMLElement {
+
+        createdCallback () {
+
+        }
+        
+        attachedCallback () {
+            
+        }
+        
+        detachedCallback () {
+        
+        }
+
+        get width () {
+            return this.offsetWidth;
+        }
+
+        set width (val) {
+            this.style.width = val + "px";
+        }
+
+        get height () {
+            return this.offsetHeight;
+        }
+
+        set height (val) {
+            this.style.height = val + "px";
+        }
+    }
+
+    document.registerElement('vt-picket', VTPicket);
+</script>
