@@ -75,8 +75,19 @@
         }
 
         update() {
-            console.log("Working");
+            console.log(this.querySelectorAll('vt-picket').length);
         }
+        
+        _getAllPickets() {
+            return this.containerElm.querySelectorAll('vt-picket');
+        }
+        
+        _createPicket(){
+            const newPicket = document.createElement('vt-picket');            
+            this.containerElm.appendChild(newPicket);
+        }
+
+        
     }
 
     document.registerElement('vt-fence', VTFence);
