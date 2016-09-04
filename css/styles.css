@@ -6,3 +6,21 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+body{
+    background-color: #092d6c;
+    background-image: linear-gradient(-180deg,#092d6c 0,#10659c 40%,#7babbf 68%,#e9c39f 85%,#ff9a4a 100%);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.grass{
+  height: 25vh;
+  min-height: 150px;
+  width: 100%;
+  background: #0c7f3f;
+  text-indent: -9999px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: inset 0 3px 0 #67a64a;
+}
