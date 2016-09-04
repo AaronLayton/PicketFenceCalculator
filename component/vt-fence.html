@@ -64,6 +64,11 @@
 
             let root = this.createShadowRoot();
             root.appendChild(clonedTemplate);
+
+            this.attributeChangedCallback = function(attrName, oldVal, newVal) {
+                console.log("UPDATES HAS ARRIVED");
+                this.update();
+            }
         }
 
         attachedCallback() {
@@ -76,6 +81,13 @@
 
         update() {
             console.log(this.querySelectorAll('vt-picket').length);
+
+            let pickets = this._getAllPickets();
+
+            for (var picket of pickets) {
+                picket.width = this._scaleNumber(this.getAttribute("picketWidth"));
+                picket.height = this._scaleNumber(this.getAttribute("picketHeight"));
+            }
         }
         
         _getAllPickets() {
@@ -87,7 +99,9 @@
             this.containerElm.appendChild(newPicket);
         }
 
-        
+        _scaleNumber (val){
+            return val / this.scaleFactor;
+        }
     }
 
     document.registerElement('vt-fence', VTFence);
