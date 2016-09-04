@@ -2,15 +2,12 @@
 <template id="fenceShadow">
     <style>
         :host {
-            width: 50vw;
-            height: 100%;
-            min-height: 150px;
+            height: 200px;
+            display: inline-block;
             text-align: center;
-            margin: -16vh auto 0;
+            margin: 0 30px;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            top: -75px;
         }
         .post{
             height: 110%;
@@ -40,12 +37,17 @@
             top: auto;
             bottom: 20%;
         }
+        .picket-container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     </style>
     <div class="post"></div>
     <div class="post post--right"></div>
     <div class="baton"></div>
     <div class="baton baton--bottom"></div>
-    <div>
+    <div class="picket-container">
         <content></content>
     </div>
 </template>

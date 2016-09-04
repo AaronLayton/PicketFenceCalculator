@@ -15,11 +15,11 @@ body{
 }
 
 .grass{
-  height: 25vh;
+  height: 300px;
   min-height: 150px;
   width: 100%;
+  text-align: center;
   background: #0c7f3f;
-  text-indent: -9999px;
   position: absolute;
   bottom: 0;
   box-shadow: inset 0 3px 0 #67a64a;
