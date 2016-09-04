@@ -67,9 +67,17 @@
             let root = this.createShadowRoot();
             root.appendChild(clonedTemplate);
 
-            this.attributeChangedCallback = function(attrName, oldVal, newVal) {
-                console.log("UPDATES HAS ARRIVED");
-                this.update();
+            this.scaleFactor = 4;
+
+            if (this.getAttribute("picketwidth") == null) {
+                this.setAttribute("picketwidth", 100);
+            }
+
+            if (this.getAttribute("picketheight") == null) {
+                this.setAttribute("picketheight", 800);
+            }
+            if (this.getAttribute("width") == null) {
+                this.setAttribute("width", 1150);
             }
         }
 
@@ -81,24 +89,30 @@
 
         }
 
-        update() {
-            console.log(this.querySelectorAll('vt-picket').length);
-
-            let pickets = this._getAllPickets();
-
-            for (var picket of pickets) {
-                picket.width = this._scaleNumber(this.getAttribute("picketWidth"));
-                picket.height = this._scaleNumber(this.getAttribute("picketHeight"));
-            }
+        attributeChangedCallback () {
+            console.log("UIpdates");
+            this.update();
         }
-        
+
+        update() {
+            let pickets = this._getAllPickets();
+            
+            for (var picket of pickets) {
+                picket.width = this._scaleNumber(this.getAttribute("picketwidth"));
+                picket.height = this._scaleNumber(this.getAttribute("picketheight"));
+            }
+
+            this.style.height = this._scaleNumber(this.getAttribute("picketheight")) + "px";
+            this.style.width = this._scaleNumber(this.getAttribute("width") || 300) + "px";
+        }
+
         _getAllPickets() {
-            return this.containerElm.querySelectorAll('vt-picket');
+            return this.querySelectorAll('vt-picket');
         }
         
         _createPicket(){
             const newPicket = document.createElement('vt-picket');            
-            this.containerElm.appendChild(newPicket);
+            this.appendChild(newPicket);
         }
 
         _scaleNumber (val){

@@ -8,21 +8,17 @@
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 
     <link href="css/styles.css" rel="stylesheet">
-    
-    <link rel="import" href="component/vt-fence.html">
     <link rel="import" href="component/vt-picket.html">
+    <link rel="import" href="component/vt-fence.html">
+    
 </head>
 <body>
 
     <div class="grass">
-        <vt-fence style="width: 800px;" picketWidth="25" picketHeight="100">
+        <vt-fence style="width: 200px;" picketwidth="100" picketheight="800" width="1150">
             <vt-picket></vt-picket>
             <vt-picket></vt-picket>
             <vt-picket></vt-picket>
-            <vt-picket></vt-picket>
-            <vt-picket></vt-picket>
-        </vt-fence>
-        <vt-fence style="width: 400px;" picketWidth="25" picketHeight="100">
             <vt-picket></vt-picket>
             <vt-picket></vt-picket>
             <vt-picket></vt-picket>
@@ -31,14 +27,26 @@
         </vt-fence>
     </div>
 
-    <button id="update">Update</button>
+    <button id="addFence">Add Fence</button>
+    <button id="removeFence">Remove Fence</button>
 
     <!--<script src="js/vt-picket.js"></script>-->
     <!--<script src="js/vt-fence.js"></script>-->
 
-    <script>
-        document.getElementById('update').addEventListener('click', () => {
-            document.querySelector('vt-fence').update();
+    <script>       
+        document.getElementById('addFence').addEventListener('click', () => {
+            const newFence = document.createElement('vt-fence');            
+            document.querySelector('.grass').appendChild(newFence).innerHTML = Array(8).join("<vt-picket></vt-picket>");
+        });
+
+        document.getElementById('removeFence').addEventListener('click', () => {         
+            document.querySelector('vt-fence:last-child').remove();
+        });
+
+        window.addEventListener('WebComponentsReady', function() {
+            document.querySelectorAll('vt-fence').forEach((el) => {
+                el.update();
+            });
         });
     </script>
 </body>

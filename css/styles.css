@@ -23,4 +23,9 @@ body{
   position: absolute;
   bottom: 0;
   box-shadow: inset 0 3px 0 #67a64a;
+  font-size: 0;
+}
+
+.grass vt-fence:not(:first-child) {
+    margin-left: 0;
 }
