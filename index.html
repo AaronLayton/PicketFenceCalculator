@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="author" content="Aaron Layton" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/vt-picket.css" rel="stylesheet">
-    <link href="css/vt-fence.css" rel="stylesheet">
+    <link rel="import" href="component/vt-fence.html" >
 </head>
 <body>
 
@@ -24,7 +26,7 @@
     <button id="update">Update</button>
 
     <script src="js/vt-picket.js"></script>
-    <script src="js/vt-fence.js"></script>
+    <!--<script src="js/vt-fence.js"></script>-->
 
     <script>
         document.getElementById('update').addEventListener('click', () => {

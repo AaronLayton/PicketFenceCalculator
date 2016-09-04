@@ -1,0 +1,49 @@
+
+
+
+<template id="fenceShadow">
+  <style>
+      :host {
+          display: block;
+          border: 1px solid #f00;
+      }
+      vt-fence {
+        display: inline-block;
+        /*font-size: 0;*/
+    }
+  </style>
+  
+  <content></content>
+</template>
+
+<script>
+    // How do I fererence this in the Class?
+    var test = document.currentScript.ownerDocument
+
+    'use strict';
+
+    class VTFence extends HTMLElement {
+
+        createdCallback() { 
+            let template = test.querySelector('#fenceShadow');
+            let clonedTemplate = test.importNode(template.content, true);
+
+            let root = this.createShadowRoot();
+            root.appendChild(clonedTemplate);
+        }
+
+        attachedCallback() {
+            
+        }
+
+        detachedCallback() {
+
+        }
+
+        update() {
+            console.log("Working");
+        }
+    }
+
+    document.registerElement('vt-fence', VTFence);
+</script>
